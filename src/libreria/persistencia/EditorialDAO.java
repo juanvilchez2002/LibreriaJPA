@@ -16,7 +16,7 @@ public class EditorialDAO extends DAO<Editorial>{
         super.editar(editorial); 
     }
     
-    public List<Editorial> buscarAutoPorNombre(String nombre){
+    public List<Editorial> buscarEditorialPorNombre(String nombre){
         conectar();
         List<Editorial> editorial = em.createQuery("SELECT e FROM Editorial e"+
                 " WHERE e.nombre LIKE :nombre").setParameter("nombre", "%"+nombre+"%")
@@ -26,7 +26,7 @@ public class EditorialDAO extends DAO<Editorial>{
         return editorial;
     }
     
-    public Editorial buscarAutorPorId(Integer id){
+    public Editorial buscarEditorialPorId(Integer id){
         conectar();
         Editorial editorial = (Editorial) em.createQuery("SELECT e FROM Editorial e"+
                 " WHERE e.id =:id").setParameter("id", id)
@@ -34,5 +34,12 @@ public class EditorialDAO extends DAO<Editorial>{
         desconectar();       
               
         return editorial;
+    }
+    
+    public List<Editorial> listarEditorial(){
+        conectar();
+        List<Editorial> editoriales = em.createQuery("SELECT e FROM Editorial e").getResultList();
+        desconectar();
+        return editoriales;
     }
 }

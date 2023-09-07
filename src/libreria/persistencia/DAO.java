@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class DAO<T> {
+public abstract class DAO<T> {
     
     //creando la conexion a la BD 
     protected final EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaJPAPU");

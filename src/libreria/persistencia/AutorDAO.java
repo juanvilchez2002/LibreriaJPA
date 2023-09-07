@@ -37,4 +37,10 @@ public class AutorDAO extends DAO<Autor>{
         return autor;
     }
     
+    public List<Autor> listarAutores(){
+        conectar();
+        List<Autor> autores = em.createQuery("SELECT a FROM Autor a").getResultList();
+        desconectar();
+        return autores;
+    }
 }
