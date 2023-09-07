@@ -27,7 +27,7 @@ public class LibroDAO extends DAO<Libro>{
     public List<Libro> buscarLibroPorTitulo(String titulo){
         conectar();
         List<Libro> libros = em.createQuery("SELECT l FROM Libro l JOIN l.editorial e "+
-                "WHERE l.titulo LIKE :titulo").setParameter("titulo", titulo)
+                "WHERE l.titulo LIKE :titulo").setParameter("titulo", "%"+titulo+"%")
                 .getResultList();
         desconectar();
         return libros;

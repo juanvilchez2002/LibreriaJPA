@@ -115,13 +115,18 @@ public class AutorServicio {
     }
     
     public void buscarAutorPorNombre(){
-        System.out.print("Ingrese nombre: ");
+        System.out.print("Ingrese nombre del Autor: ");
         String nombre = consola.nextLine();
         ArrayList<Autor> autor = new ArrayList(dao.buscarAutoPorNombre(nombre));
         
-        for(Autor aut: autor){
-        
+        if(autor.isEmpty()){
+            System.out.println("No existe Autor.");
+        }else{
+            System.out.println("---- LISTA DE AUTORES ----");
+            System.out.println("Id\tAutor");
+            for(Autor aut: autor){
+                System.out.println(aut.getId()+"\t"+aut.getNombre());
+            }
         }
-        
     }
 }

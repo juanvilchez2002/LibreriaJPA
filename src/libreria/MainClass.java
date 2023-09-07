@@ -29,6 +29,8 @@ public class MainClass {
         
         Scanner consola = new Scanner(System.in);
         
+        Boolean flag = true;
+        
         do{
             System.out.println("------ MENU ------");
             System.out.println("1. Ingresar Libro. ");
@@ -39,6 +41,7 @@ public class MainClass {
             System.out.println("6. Buscar Libro por Titulo: ");
             System.out.println("7. Buscar Libro por Autor. ");
             System.out.println("8. Buscar Libro por Editorial. ");
+            System.out.println("9. Salir.");
             System.out.println("Seleccione una Opcion: ");
             
             int op = consola.nextInt();            
@@ -62,11 +65,28 @@ public class MainClass {
                     es.crearEditorial(editorial, true);
                     break;
                 case 4:
-                    System.out.println("");
+                    as.buscarAutorPorNombre();
+                    break;
+                case 5:
+                    es.buscarEditorialPorNombre();
+                    break;
+                case 6:
+                    ls.buscarLibroTitulo();
+                    break;
+                case 7:
+                    ls.buscarLibroPorAutor();
+                    break;
+                case 8:
+                    ls.buscarLibroPorEditorial();
+                    break;
+                case 9:
+                    System.out.println("Saliendo!!!");
+                    flag = false;
+                    break;
                 default:
-                    throw new AssertionError();
+                    System.out.println("Ingreso un opcion invalida!!");;
             }
         
-        }while(true);
+        }while(flag);
     } 
 }

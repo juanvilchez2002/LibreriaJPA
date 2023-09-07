@@ -113,4 +113,19 @@ public class EditorialServicio {
         return (Editorial) dao.buscarEditorialPorId(id);
     }
     
+    public void buscarEditorialPorNombre(){
+        System.out.print("Ingrese nombre del Autor: ");
+        String nombre = consola.nextLine();
+        ArrayList<Editorial> editorial = new ArrayList(dao.buscarEditorialPorNombre(nombre));
+        
+        if(editorial.isEmpty()){
+            System.out.println("No existe Editorial.");
+        }else{
+            System.out.println("---- LISTA DE AUTORES ----");
+            System.out.println("Id\tEditorial");
+            for(Editorial editor: editorial){
+                System.out.println(editor.getId()+"\t"+editor.getNombre());
+            }
+        }
+    }
 }
